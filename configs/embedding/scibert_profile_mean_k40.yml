@@ -1,0 +1,13 @@
+experiment_name: SciBERT Profile Mean K40
+encoder_class: SciBERTEncoder
+encoder_config:
+  model_name: models/scibert
+  device: null
+  batch_size: 16
+  max_length: 512
+strategy_class: ProfileAggregationStrategy
+strategy_config:
+  k: 40
+  aggregation: mean
+  similarity: cosine
+description: SciBERT模型使用Profile聚合策略，平均聚合前25篇论文

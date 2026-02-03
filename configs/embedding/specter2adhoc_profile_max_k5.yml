@@ -1,0 +1,14 @@
+experiment_name: SPECTER2-Adhoc Profile Max K5
+encoder_class: SPECTER2Encoder
+encoder_config:
+  model_name: models/specter2/base
+  adapter_name: models/specter2/adapters/adhoc
+  device: null
+  batch_size: 16
+  max_length: 512
+strategy_class: ProfileAggregationStrategy
+strategy_config:
+  k: 5
+  aggregation: max
+  similarity: cosine
+description: SPECTER2-Adhoc模型使用Profile聚合策略，取前25篇论文的最大相似度

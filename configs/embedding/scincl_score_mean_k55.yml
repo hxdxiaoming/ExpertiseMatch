@@ -1,0 +1,25 @@
+experiment_name: SciNCL Score-level Mean Aggregation (k=55)
+encoder_class: SentenceTransformerEncoder
+encoder_config:
+  model_name: models/sentence-transformers/scincl
+  device: null
+  batch_size: 16
+  max_length: 512
+strategy_class: ScoreAggregationStrategy
+strategy_config:
+  k: 55
+  aggregation: mean
+  similarity: cosine
+description: 'SciNCL Score-level平均聚合实验（k=55）：
+
+  - 策略②：先比较，后聚合
+
+  - 计算查询论文与审稿人每篇论文的余弦相似度
+
+  - 选择前25个最高相似度分数
+
+  - 对这些分数进行平均聚合
+
+  - 保留细粒度匹配信息
+
+  '

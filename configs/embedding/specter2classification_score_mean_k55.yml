@@ -1,0 +1,14 @@
+experiment_name: SPECTER2-Classification Score Mean K55
+encoder_class: SPECTER2Encoder
+encoder_config:
+  model_name: models/specter2/base
+  adapter_name: models/specter2/adapters/classification
+  device: null
+  batch_size: 16
+  max_length: 512
+strategy_class: ScoreAggregationStrategy
+strategy_config:
+  k: 55
+  aggregation: mean
+  similarity: cosine
+description: SPECTER2-Classification模型使用Score聚合策略，平均聚合前25篇论文的相似度分数

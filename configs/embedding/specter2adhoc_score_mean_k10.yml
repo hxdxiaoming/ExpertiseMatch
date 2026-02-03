@@ -1,0 +1,14 @@
+experiment_name: SPECTER2-Adhoc Score Mean K10
+encoder_class: SPECTER2Encoder
+encoder_config:
+  model_name: models/specter2/base
+  adapter_name: models/specter2/adapters/adhoc
+  device: null
+  batch_size: 16
+  max_length: 512
+strategy_class: ScoreAggregationStrategy
+strategy_config:
+  k: 10
+  aggregation: mean
+  similarity: cosine
+description: SPECTER2-Adhoc模型使用Score聚合策略，平均聚合前25篇论文的分数

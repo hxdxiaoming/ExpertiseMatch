@@ -1,0 +1,28 @@
+# BM25 Limited Papers (10) Configuration
+# 限制每个审稿人最多使用10篇论文构建画像
+
+experiment_name: "BM25 Limited Papers (10)"
+
+# 匹配器配置
+matcher_class: "BM25Matcher"
+matcher_config:
+  # === BM25核心参数 ===
+  bm25_k1: 1.2                    # 标准词频饱和参数
+  bm25_b: 0.75                    # 标准文档长度归一化
+  
+  # === 审稿人画像参数 ===
+  max_papers_per_reviewer: 10     # 限制最多10篇论文
+  paper_selection_method: "recent" # 选择最近的论文
+  embedding_model_name: null      # 不使用embedding
+  
+  # === 缓存参数 ===
+  use_precomputed: false          # 不使用预计算缓存
+  cache_dir: "cache"              # 缓存目录
+
+# 实验描述
+description: |
+  限制论文数量的BM25实验配置：
+  - 每个审稿人最多使用10篇最近的论文
+  - 平衡画像质量和计算效率
+  - 适合中等产量审稿人的数据集
+  - 用于分析论文数量对匹配质量的影响

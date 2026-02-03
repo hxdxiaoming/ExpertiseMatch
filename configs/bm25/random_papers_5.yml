@@ -1,0 +1,28 @@
+# BM25 Random Papers (5) Configuration
+# 随机选择5篇论文构建审稿人画像
+
+experiment_name: "BM25 Random Papers (5)"
+
+# 匹配器配置
+matcher_class: "BM25Matcher"
+matcher_config:
+  # === BM25核心参数 ===
+  bm25_k1: 1.2                    # 标准词频饱和参数
+  bm25_b: 0.75                    # 标准文档长度归一化
+  
+  # === 审稿人画像参数 ===
+  max_papers_per_reviewer: 5      # 限制最多5篇论文
+  paper_selection_method: "random" # 随机选择论文
+  embedding_model_name: null      # 不使用embedding
+  
+  # === 缓存参数 ===
+  use_precomputed: false          # 不使用预计算缓存
+  cache_dir: "cache"              # 缓存目录
+
+# 实验描述
+description: |
+  随机选择论文的BM25实验配置：
+  - 每个审稿人随机选择5篇论文
+  - 避免时间偏差（最近论文可能不代表整体兴趣）
+  - 提供论文选择策略的对比基线
+  - 用于分析选择策略对匹配质量的影响

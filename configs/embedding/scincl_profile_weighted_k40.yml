@@ -1,0 +1,27 @@
+experiment_name: SciNCL Profile-level Weighted Mean Aggregation (k=40)
+encoder_class: SentenceTransformerEncoder
+encoder_config:
+  model_name: models/sentence-transformers/scincl
+  device: null
+  batch_size: 16
+  max_length: 512
+strategy_class: ProfileAggregationStrategy
+strategy_config:
+  k: 40
+  aggregation: weighted_mean
+  similarity: cosine
+description: 'SciNCL Profile-level加权平均聚合实验（k=40）：
+
+  - 策略①：先聚合，后比较
+
+  - 选择审稿人的前25篇论文
+
+  - 将这些论文的embeddings进行位置加权平均聚合
+
+  - 排名越高的论文权重越大
+
+  - 计算聚合后的审稿人表示与查询论文的余弦相似度
+
+  - 兼顾效率和精度的平衡策略
+
+  '

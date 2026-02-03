@@ -1,0 +1,58 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+*.egg-info/
+*.egg
+dist/
+build/
+
+# IDE and editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Environment and secrets
+.env
+.env.local
+*.local
+
+# Logs and temp
+*.log
+*.tmp
+.cache/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Experiment results (not tracked; folder structure preserved by runs)
+results/
+
+# Pre-trained models: ignore all contents, keep directory structure via .gitkeep
+models/**
+!models/**/.gitkeep
+
+# Dataset files (large JSON); keep structure + small meta only
+data/**
+!data/**/.gitkeep
+!data/**/*_meta.json
+
+# CoF: ignore model weights and duplicate data, keep structure
+CoF-main/model/**
+!CoF-main/model/**/.gitkeep
+CoF-main/data/**
+!CoF-main/data/.gitkeep

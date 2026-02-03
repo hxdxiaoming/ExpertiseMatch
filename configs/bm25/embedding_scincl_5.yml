@@ -1,0 +1,29 @@
+# BM25 + Embedding (SciNCL, 5 papers) Configuration
+# 使用SciNCL embedding智能选择5篇最相关论文
+
+experiment_name: "BM25 + SciNCL Embedding (5)"
+
+# 匹配器配置
+matcher_class: "BM25Matcher"
+matcher_config:
+  # === BM25核心参数 ===
+  bm25_k1: 1.2                    # 标准词频饱和参数
+  bm25_b: 0.75                    # 标准文档长度归一化
+  
+  # === 审稿人画像参数 ===
+  max_papers_per_reviewer: 5      # 限制最多5篇论文
+  paper_selection_method: "embedding_based" # 基于embedding选择
+  embedding_model_name: "models/sentence-transformers/scincl" # SciNCL模型
+  
+  # === 缓存参数 ===
+  use_precomputed: false          # 不使用预计算缓存
+  cache_dir: "cache"              # 缓存目录
+
+# 实验描述
+description: |
+  Embedding增强的BM25实验配置：
+  - 使用SciNCL模型计算论文相似度
+  - 为每个审稿人选择与查询论文最相关的5篇论文
+  - 结合语义理解和关键词匹配的优势
+  - 预期在匹配质量上有显著提升
+  - 需要预计算embedding以提高效率

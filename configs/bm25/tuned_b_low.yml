@@ -1,0 +1,28 @@
+# BM25 Low B Configuration
+# 使用较低的b值，减弱文档长度归一化
+
+experiment_name: "BM25 Low B"
+
+# 匹配器配置
+matcher_class: "BM25Matcher"
+matcher_config:
+  # === BM25核心参数 ===
+  bm25_k1: 1.2                    # 标准词频饱和参数
+  bm25_b: 0.5                     # 较低的文档长度归一化参数
+  
+  # === 审稿人画像参数 ===
+  max_papers_per_reviewer: null   # 不限制论文数量
+  paper_selection_method: "all"   # 使用所有论文
+  embedding_model_name: null      # 不使用embedding
+  
+  # === 缓存参数 ===
+  use_precomputed: false          # 不使用预计算缓存
+  cache_dir: "cache"              # 缓存目录
+
+# 实验描述
+description: |
+  低b值的BM25实验配置：
+  - 使用较低的b值 (0.5)，减弱长度归一化
+  - 适合处理文档长度相对均匀的数据集
+  - 允许长文档保持更多优势
+  - 用于长度敏感性分析

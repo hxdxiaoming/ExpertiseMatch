@@ -1,0 +1,29 @@
+# BM25 ExHarmony Optimized Configuration
+# 专门为exHarmony超大数据集优化的配置
+
+experiment_name: "BM25 ExHarmony Optimized"
+
+# 匹配器配置
+matcher_class: "BM25Matcher"
+matcher_config:
+  # === BM25核心参数 ===
+  bm25_k1: 1.2                    # 标准词频饱和参数
+  bm25_b: 0.75                    # 标准文档长度归一化
+  
+  # === 审稿人画像参数（内存优化）===
+  max_papers_per_reviewer: 50     # 限制每个审稿人最多50篇论文
+  paper_selection_method: "recent" # 使用最近的论文
+  embedding_model_name: null      # 不使用embedding（节省内存）
+  
+  # === 缓存参数 ===
+  use_precomputed: true           # 强制使用预计算缓存
+  cache_dir: "cache"              # 缓存目录
+
+# 实验描述
+description: |
+  专门为exHarmony超大数据集优化的BM25配置：
+  - 限制每个审稿人最多50篇论文，减少内存占用
+  - 使用最近发表的论文构建审稿人画像
+  - 强制使用预计算缓存，避免重复计算
+  - 自动启用流式评估，避免内存爆炸
+  - 适合在内存受限的环境中运行

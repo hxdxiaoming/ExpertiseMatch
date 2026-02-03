@@ -1,0 +1,13 @@
+experiment_name: SPECTER Profile Max K25
+encoder_class: SentenceTransformerEncoder
+encoder_config:
+  model_name: models/sentence-transformers/specter
+  device: null
+  batch_size: 16
+  max_length: 512
+strategy_class: ProfileAggregationStrategy
+strategy_config:
+  k: 25
+  aggregation: max
+  similarity: cosine
+description: SPECTER模型使用Profile聚合策略，最大值聚合前25篇论文

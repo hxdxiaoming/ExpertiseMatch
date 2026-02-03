@@ -1,0 +1,29 @@
+# BM25 Precomputed Basic Configuration
+# 使用预计算BM25索引的基础配置
+
+experiment_name: "BM25 Precomputed Basic"
+
+# 匹配器配置
+matcher_class: "BM25Matcher"
+matcher_config:
+  # === BM25核心参数 ===
+  bm25_k1: 1.2                    # 标准词频饱和参数
+  bm25_b: 0.75                    # 标准文档长度归一化
+  
+  # === 审稿人画像参数 ===
+  max_papers_per_reviewer: null   # 不限制论文数量
+  paper_selection_method: "all"   # 使用所有论文
+  embedding_model_name: null      # 不使用embedding
+  
+  # === 缓存参数 ===
+  use_precomputed: true           # 使用预计算缓存
+  cache_dir: "cache"              # 缓存目录
+
+# 实验描述
+description: |
+  预计算优化的BM25实验配置：
+  - 使用离线预计算的BM25索引
+  - 显著减少在线实验时间（99%+加速）
+  - 适合大规模实验和参数扫描
+  - 需要先运行offline_preprocessing.py
+  - 确保实验的可重现性

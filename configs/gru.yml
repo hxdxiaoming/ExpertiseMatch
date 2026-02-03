@@ -1,0 +1,17 @@
+experiment_name: GRU_TwoStage_ReviewerCentric
+method: matcher
+
+# 使用自包含匹配器
+matcher_class: GRUTwoStageMatcher
+matcher_config:
+  # GRU编码器配置
+  encoder_config:
+    model_name: gru_arxiv
+    model_root: models/gru
+    max_length: 256
+    batch_size: 64
+  # 两阶段参数
+  top_k_categories: 3
+  min_papers_per_category: 1
+  max_reviewer_papers_for_ranking: 10
+  top_k_similar_papers: 3

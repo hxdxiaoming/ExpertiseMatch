@@ -1,0 +1,13 @@
+experiment_name: SPECTER2-BASE Profile Mean K10
+encoder_class: SentenceTransformerEncoder
+encoder_config:
+  model_name: models/specter2/base
+  device: null
+  batch_size: 16
+  max_length: 512
+strategy_class: ProfileAggregationStrategy
+strategy_config:
+  k: 10
+  aggregation: mean
+  similarity: cosine
+description: SPECTER2-BASE模型使用Profile聚合策略，平均聚合前25篇论文

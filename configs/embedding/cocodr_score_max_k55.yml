@@ -1,0 +1,25 @@
+experiment_name: COCO-DR Score-level Max Aggregation (k=55)
+encoder_class: COCO_DREncoder
+encoder_config:
+  model_name: models/coco-dr/base-msmarco
+  device: null
+  batch_size: 8
+  max_length: 512
+strategy_class: ScoreAggregationStrategy
+strategy_config:
+  k: 55
+  aggregation: max
+  similarity: cosine
+description: 'COCO-DR Score-level最大值聚合实验（k=55）：
+
+  - 策略②：先比较，后聚合
+
+  - 计算查询论文与审稿人每篇论文的余弦相似度
+
+  - 选择前25个最高相似度分数
+
+  - 取最大相似度分数作为最终匹配分数
+
+  - 关注最强匹配信号
+
+  '

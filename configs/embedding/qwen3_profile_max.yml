@@ -1,0 +1,13 @@
+experiment_name: Qwen3 Profile Max K10
+encoder_class: SentenceTransformerEncoder
+encoder_config:
+  model_name: models/sentence-transformers/qwen3-0.6B
+  device: null
+  batch_size: 16
+  max_length: 512
+strategy_class: ProfileAggregationStrategy
+strategy_config:
+  k: 10
+  aggregation: max
+  similarity: cosine
+description: Qwen3 模型在 paper-centric 任务下使用 Profile-Max 策略（k=10）。若为 reviewer-centric，请改为 ReviewerCentricProfileAggregationStrategy。

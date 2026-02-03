@@ -1,0 +1,25 @@
+experiment_name: SciNCL Profile-level Max Aggregation (k=40)
+encoder_class: SentenceTransformerEncoder
+encoder_config:
+  model_name: models/sentence-transformers/scincl
+  device: null
+  batch_size: 16
+  max_length: 512
+strategy_class: ProfileAggregationStrategy
+strategy_config:
+  k: 40
+  aggregation: max
+  similarity: cosine
+description: 'SciNCL Profile-level最大值聚合实验（k=40）：
+
+  - 策略①：先聚合，后比较
+
+  - 选择审稿人的前25篇论文
+
+  - 将这些论文的embeddings进行按位最大值聚合
+
+  - 计算聚合后的审稿人表示与查询论文的余弦相似度
+
+  - 保留每个维度的最强特征
+
+  '

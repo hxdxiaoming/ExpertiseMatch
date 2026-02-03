@@ -1,0 +1,32 @@
+# TPMS (Text-based Paper Matching System) - 统一配置
+# 基于TF-IDF的文本相似度计算系统，支持多种信息模式
+
+experiment_name: "TPMS Title+Abstract"
+
+# 匹配器配置
+matcher_class: "TPMSTwoStageMatcher"
+matcher_config:
+  # === 信息模式配置 ===
+  regime: "title+abstract"        # 信息模式: "title", "title+abstract", "full"
+  
+  # === 分数处理配置 ===
+  normalize_scores: false         # 禁用分数归一化，查看原始相似度分数
+  cache_profiles: true            # 是否缓存档案以提高性能
+
+# 实验描述
+description: |
+  TPMS统一配置：
+  - 使用标题+摘要模式，平衡准确性和性能
+  - 禁用分数归一化，查看原始相似度分数以调试AUC-ROC问题
+  - 启用档案缓存，提高重复计算效率
+  - 支持paper-centric和reviewer-centric任务
+  - 自动检测数据集类型（open/closed）
+
+# 技术说明
+notes: |
+  TPMS基于Xu等人2019年的IJCAI论文实现
+  - 使用改进的TF-IDF余弦相似度
+  - 支持智能文本预处理（停用词过滤、词干提取）
+  - 自动处理特殊字符和重音符号
+  - 支持三种信息模式：title、title+abstract、full
+  - 当前禁用归一化以调试相似度计算问题

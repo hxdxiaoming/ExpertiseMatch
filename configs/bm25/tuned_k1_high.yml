@@ -1,0 +1,28 @@
+# BM25 High K1 Configuration
+# 使用较高的k1值，适合长文档或高词频场景
+
+experiment_name: "BM25 High K1"
+
+# 匹配器配置
+matcher_class: "BM25Matcher"
+matcher_config:
+  # === BM25核心参数 ===
+  bm25_k1: 2.0                    # 较高的词频饱和参数
+  bm25_b: 0.75                    # 标准文档长度归一化
+  
+  # === 审稿人画像参数 ===
+  max_papers_per_reviewer: null   # 不限制论文数量
+  paper_selection_method: "all"   # 使用所有论文
+  embedding_model_name: null      # 不使用embedding
+  
+  # === 缓存参数 ===
+  use_precomputed: false          # 不使用预计算缓存
+  cache_dir: "cache"              # 缓存目录
+
+# 实验描述
+description: |
+  高k1值的BM25实验配置：
+  - 使用较高的k1值 (2.0)，增强高频词的影响
+  - 适合处理长文档或词汇重复度高的场景
+  - 可能在某些数据集上表现更好
+  - 用于参数敏感性分析

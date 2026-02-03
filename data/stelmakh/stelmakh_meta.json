@@ -1,0 +1,22 @@
+{
+  "name": "stelmakh",
+  "qrel_format": "closed",
+  "task_type": "reviewer-centric",
+  "qrels_profiles": {
+    "raw": {
+      "file": "stelmakh_queries_test_raw.json",
+      "label_type": "graded",
+      "description": "1-to-5 rating scale with 0.25 increments, where a higher score indicates greater expertise. Descriptions range from 1.0 ('Not qualified to review') to 5.0 ('Background to assess all aspects')."
+    },
+    "soft": {
+      "file": "stelmakh_queries_test_soft.json",
+      "label_type": "binary",
+      "description": "Soft binary labels: scores >= 3.0 are mapped to 1 (relevant), scores < 3.0 are mapped to 0 (irrelevant)."
+    },
+    "hard": {
+      "file": "stelmakh_queries_test_hard.json",
+      "label_type": "binary",
+      "description": "Hard binary labels: scores >= 4.0 are mapped to 1 (relevant), scores < 4.0 are mapped to 0 (irrelevant)."
+    }
+  }
+}

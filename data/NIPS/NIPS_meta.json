@@ -1,0 +1,21 @@
+{
+  "name": "NIPS",
+  "qrel_format": "closed",
+  "qrels_profiles": {
+    "soft": {
+      "file": "NIPS_queries_test_soft.json",
+      "label_type": "binary",
+      "description": "Relevance scores of 0 and 1 are mapped to 0 (irrelevant), while 2 and 3 are mapped to 1 (relevant)."
+    },
+    "hard": {
+      "file": "NIPS_queries_test_hard.json",
+      "label_type": "binary",
+      "description": "Relevance scores of 0, 1, and 2 are mapped to 0 (irrelevant), while 3 is mapped to 1 (relevant)."
+    },
+    "raw": {
+      "file": "NIPS_queries_test_raw.json",
+      "label_type": "graded",
+      "description": "Original relevance scores on a 0-3 scale."
+    }
+  }
+}

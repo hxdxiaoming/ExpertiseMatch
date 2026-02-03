@@ -1,0 +1,28 @@
+# BM25 Basic Configuration
+# 最基础的BM25配置，使用标准参数和所有审稿人论文
+
+experiment_name: "BM25 Basic"
+
+# 匹配器配置
+matcher_class: "BM25Matcher"
+matcher_config:
+  # === BM25核心参数 ===
+  bm25_k1: 1.2                    # 词频饱和参数 (0.5-3.0)
+  bm25_b: 0.75                    # 文档长度归一化参数 (0.0-1.0)
+  
+  # === 审稿人画像参数 ===
+  max_papers_per_reviewer: 25     # 每个审稿人最多使用25篇论文
+  paper_selection_method: "top_k" # 使用前25篇论文
+  embedding_model_name: null      # 不使用embedding
+  
+  # === 缓存参数 ===
+  use_precomputed: false          # 不使用预计算缓存
+  cache_dir: "cache"              # 缓存目录
+
+# 实验描述
+description: |
+  最基础的BM25实验配置：
+  - 使用标准BM25参数 (k1=1.2, b=0.75)
+  - 每个审稿人使用前25篇论文构建画像
+  - 不使用任何优化或缓存
+  - 适合作为基线对比实验

@@ -1,0 +1,26 @@
+experiment_name: SPECTER2-Adhoc Score-level Max Aggregation (k=55)
+encoder_class: SPECTER2Encoder
+encoder_config:
+  model_name: models/specter2/base
+  device: null
+  batch_size: 8
+  max_length: 512
+  adapter_name: models/specter2/adapters/adhoc
+strategy_class: ScoreAggregationStrategy
+strategy_config:
+  k: 55
+  aggregation: max
+  similarity: cosine
+description: 'SPECTER2-Adhoc Score-level最大值聚合实验（k=55）：
+
+  - 策略②：先比较，后聚合
+
+  - 计算查询论文与审稿人每篇论文的余弦相似度
+
+  - 选择前25个最高相似度分数
+
+  - 取最大相似度分数作为最终匹配分数
+
+  - 关注最强匹配信号
+
+  '

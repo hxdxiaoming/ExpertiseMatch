@@ -1,0 +1,29 @@
+# BM25 Precomputed + Embedding Configuration
+# 使用预计算BM25索引和embedding的完全优化配置
+
+experiment_name: "BM25 Precomputed + Embedding"
+
+# 匹配器配置
+matcher_class: "BM25Matcher"
+matcher_config:
+  # === BM25核心参数 ===
+  bm25_k1: 1.2                    # 标准词频饱和参数
+  bm25_b: 0.75                    # 标准文档长度归一化
+  
+  # === 审稿人画像参数 ===
+  max_papers_per_reviewer: 5      # 限制最多5篇论文
+  paper_selection_method: "embedding_based" # 基于embedding选择
+  embedding_model_name: "models/sentence-transformers/scincl" # SciNCL模型
+  
+  # === 缓存参数 ===
+  use_precomputed: true           # 使用预计算缓存
+  cache_dir: "cache"              # 缓存目录
+
+# 实验描述
+description: |
+  完全优化的BM25实验配置：
+  - 使用预计算的BM25索引和embedding
+  - 结合智能论文选择和缓存优化
+  - 实现最佳的质量-效率平衡
+  - 适合生产环境和大规模评估
+  - 需要完整的离线预处理
