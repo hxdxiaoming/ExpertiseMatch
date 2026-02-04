@@ -33,7 +33,7 @@ See `data/<dataset>/` for structure and `meta.json` for `task_type`.
 
 ### Datasets (数据集)
 
-- **Included (small):** The repository includes the following datasets under `data/<name>/`: SIGIR, KDD, NIPS, SciRepEval, Stelmakh. Each folder contains `*_meta.json`, `*_papers*.json` / `*_queries_*.json`, and `*_reviewers*.json` as required by the pipeline.
+- **Included (structure + meta only):** The repository keeps the folder structure and `*_meta.json` for SIGIR, KDD, NIPS, SciRepEval, Stelmakh under `data/<name>/`. The actual dataset files (`*_papers*.json`, `*_queries_*.json`, `*_reviewers*.json`) are not in the repo; place them in the same directories following the naming pattern so the pipeline can find them (see the linked benchmark or data sources for downloads).
 - **Adding a new dataset:** Create a directory `data/<DatasetName>/` and place:
   - `<DatasetName>_meta.json` (with `task_type`: `p2r`, `r2p`, or `j2r`),
   - test papers/queries/reviewers JSONs following the same naming pattern as existing datasets.

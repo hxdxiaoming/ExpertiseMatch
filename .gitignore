@@ -56,3 +56,7 @@ CoF-main/model/**
 !CoF-main/model/**/.gitkeep
 CoF-main/data/**
 !CoF-main/data/.gitkeep
+
+# Local / internal only (do not push)
+ExpertiseMatch__A_Unified_Benchmark_Introducing_Bidirectional_and_Cross_Domain_Tasks.txt
+OPEN_SOURCE_PLAN.md
