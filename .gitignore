@@ -42,9 +42,15 @@ Thumbs.db
 # Experiment results (not tracked; folder structure preserved by runs)
 results/
 
-# Pre-trained models: ignore all contents, keep directory structure via .gitkeep
-models/**
-!models/**/.gitkeep
+# Pre-trained models: ignore weights/binaries, keep configs & structure
+models/**/*.bin
+models/**/*.safetensors
+models/**/*.ckpt
+models/**/*.pth
+models/**/*.msgpack
+models/**/tf_model.h5
+models/**/*.gz
+models/**/2048c0dca92fe54cf2bec6c36972511ca04e546060307098139b19221dd4e93f
 
 # Dataset files (large JSON); keep structure + small meta only
 data/**
@@ -60,3 +66,4 @@ CoF-main/data/**
 # Local / internal only (do not push)
 ExpertiseMatch__A_Unified_Benchmark_Introducing_Bidirectional_and_Cross_Domain_Tasks.txt
 OPEN_SOURCE_PLAN.md
+
