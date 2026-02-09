@@ -56,6 +56,33 @@ Pre-trained model weights are **not** stored in the repository. Only the directo
 
 Download the official checkpoints from the respective sources (Hugging Face, author repos, etc.) and extract or copy them into the paths above so that configs in `configs/` point to the correct locations. Experiment outputs go to `results/` (not tracked); the folder is created automatically when you run experiments.
 
+**Recommended Hugging Face model sources:**
+- SPECTER: [`allenai/specter`](https://huggingface.co/allenai/specter)
+- SPECTER2: [`allenai/specter2`](https://huggingface.co/allenai/specter2)
+- Qwen3-Embedding-0.6B: [`Qwen/Qwen3-Embedding-0.6B`](https://huggingface.co/Qwen/Qwen3-Embedding-0.6B)
+- SciBERT (scivocab, uncased): [`allenai/scibert_scivocab_uncased`](https://huggingface.co/allenai/scibert_scivocab_uncased)
+- SciNCL: [`malteos/scincl`](https://huggingface.co/malteos/scincl)
+- COCO-DR (MS MARCO): [`OpenMatch/cocodr-base-msmarco`](https://huggingface.co/OpenMatch/cocodr-base-msmarco)
+- BiomedBERT encoder for CoF: [`microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract`](https://huggingface.co/microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract)
+
+**GRU model:**
+- Pretrained GRU checkpoint (`model_checkpoint.pth`) used in the EXPERMATCH paper can be downloaded from Google Drive: [`gru.zip`](https://drive.google.com/file/d/1_PJYdLkBRkISH-B8sceh33bJpIuHeg4B/view?usp=sharing). After downloading and extracting, place `model_checkpoint.pth` under `models/gru/` and the tokenizer files under `models/gru/tokenizer/`.
+- Alternatively, you can reproduce and finetune your own GRU model by following the methodology in the COLING 2025 demo paper *“Autonomous Machine Learning-Based Peer Reviewer Selection System”* ([link](https://aclanthology.org/2025.coling-demos.20/)).
+
+**CoF checkpoint:**
+- CoF multi-factor model weights (`cof.ckpt`) can be downloaded from Google Drive: [model.zip](https://drive.google.com/file/d/1n4fV6-K18V1nuLPGVBTbxsU78KDCnPLd/view). After downloading and extracting, place `cof.ckpt` under `models/CoF/`.
+
+#### CoF-main internal model paths
+
+The original CoF code under `CoF-main/` expects its own local model directory:
+
+- **BiomedBERT encoder (for CoF-main scripts)**: `CoF-main/model/BiomedNLP-BiomedBERT-base-uncased-abstract/`  
+  (you can copy the checkpoint downloaded from [`microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract`](https://huggingface.co/microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract) into this folder)
+- **CoF checkpoint (for CoF-main chains)**: `CoF-main/model/cof.ckpt`  
+  (you can reuse the same `cof.ckpt` as in `models/CoF/cof.ckpt`)
+
+When running CoF via `run_experiment.sh` or CoF-main scripts, make sure the above paths exist so that `CoF-main/get_paper_emb.py` can resolve the local encoder and checkpoint correctly.
+
 ## Metrics
 We report across graded and binary settings:
 - Graded (raw): NDCG@k (primary), Kendall’s Tau, Spearman’s Rho
